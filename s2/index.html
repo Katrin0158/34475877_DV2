@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Century of Cinema: Where Films Come From and What Makes Them Pay</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+</head><body>
+<header><p class="kicker">Movie collections · 4,794 films · 1916–2017</p>
+<h1>A century of cinema: <em>where films come from</em> and what makes them pay</h1>
+<p class="lead">Which countries make the movies we watch? Which genres earn the most for every ringgit spent? And have films really got worse? Scroll through three maps and eight more charts to find out.</p></header>
+
+<section><p class="kicker">Part 1 · Where in the world</p><h2>Hollywood sits at the centre of the map</h2>
+<p>The United States helped make 3,952 of the 4,794 films in this collection, more than five times the next country, the United Kingdom (635). Adjust for population and the picture gets more interesting: Ireland and Canada punch well above their weight.</p>
+<div class="chart"><div id="m1"></div></div><p class="cap">Films per million people (2016 population). Hover over a country for details.</p>
+<p class="note">Malaysia appears in only 2 films here, about 0.06 per million people. Our own industry is almost invisible in global film databases.</p></section>
+
+<section><p class="kicker">Part 2 · Money and partnerships</p><h2>Box office follows the studios, and the studios work together</h2>
+<p>Bubble size shows the total worldwide takings of films made in each country. The US dominates, but the UK, Germany, Canada and France are the next biggest bubbles.</p>
+<div class="chart"><div id="m2"></div></div><p class="cap">Use the slider to watch box office build up year by year. Total takings of films with revenue data, in US dollars (not adjusted for inflation).</p>
+<p>Films are often made by several countries together. Thicker lines mean more joint films. The strongest link by far is between the United Kingdom and the United States, with 378 shared films.</p>
+<div class="chart"><div id="m3"></div></div><p class="cap">Country pairs with at least 6 co-produced films. Lines join country centres, not routes travelled.</p></section>
+
+<section><p class="kicker">Part 3 · How taste changed</p><h2>Genres rise and fall by decade</h2>
+<p>The band for each genre widens when more films of that type were released. Drama has led every decade, while action and thrillers grew from a handful of films in the 1950s to hundreds from the 1990s onwards. The 2010s only run to early 2017, so that band is shorter.</p>
+<div class="chart"><div id="c4"></div></div><p class="cap">Number of films per genre, by decade (a film can belong to several genres). Top 8 genres, 1950s onwards. Click a genre in the legend to highlight it.</p>
+<p>Audiences rate genres differently too. The darker the gold, the higher the average rating. Documentaries, war and history films are rated highest on average, and horror lowest.</p>
+<div class="chart"><div id="c5"></div></div><p class="cap">Average audience rating (out of 10) by genre and decade.</p></section>
+
+<section><p class="kicker">Part 4 · Have films got worse?</p><h2>Ratings drifted down, but the reason is surprising</h2>
+<p>The average rating fell from about 7.2 in the 1950s to about 6.1 in the 2010s. Old films we still watch today are the survivors that people kept loving, while modern ratings include everything that gets released, good or bad. The curves below show that recent films are spread across a wider range of ratings.</p>
+<div class="chart"><div id="c7"></div></div><p class="cap">Distribution of audience ratings by era. A taller curve means more films at that rating.</p></section>
+
+<section><p class="kicker">Part 5 · Following the money</p><h2>Big budgets don't guarantee big profits</h2>
+<p>The typical film cost about US$2.9 million in the 1950s and about US$30 million from the 1990s onwards (not adjusted for inflation). But spending more does not always pay: on the chart, any dot below the dashed line lost money.</p>
+<div class="chart"><div id="c8"></div></div><p class="cap">Each dot is one film. The dashed line marks break-even (revenue equals budget). Click an era in the legend to highlight it.</p>
+<p>The best return for money spent comes from small films. The typical documentary earns about 3.9 times its budget and the typical horror film about 2.9 times, compared with only 1.8 times for westerns and 1.9 times for history films. (Only 32 documentaries and 56 westerns have budget data, so treat those two with care.) The radar below shows the trade-off: documentaries and horror films cost little and earn back the most for each dollar, while animation spends the most (about US$75 million for a typical film) and takes the most at the box office, yet returns only about 2.8 times its cost.</p>
+<div class="chart"><div id="c6"></div></div><p class="cap">How to read it: each corner is one measure, and the further a genre's shape reaches towards a corner, the higher it scores. 100 means the highest of all 18 genres and 0 the lowest. Hover over a dot for the real value.</p>
+<p>Five of the top studios each have more than 160 films with financial data in this collection. Warner Bros. leads on number of films, with 280.</p>
+<div class="chart"><div id="c9"></div></div><p class="cap">Total box office of the 15 biggest studios (at least 15 films with revenue data).</p></section>
+
+<section><p class="kicker">Part 6 · Small details</p><h2>Timing and length</h2>
+<p>Summer and the year-end holidays are the best times to release a film: June has the highest median takings of any month (about US$149 million) and December follows (about US$108 million). September is the weakest at about US$28 million.</p>
+<div class="chart"><div id="c11"></div></div><p class="cap">Median box office by release month, films from 1990 onwards.</p>
+<p>Films peaked in length in the 1960s, at a median of 128 minutes, and have settled around 104 minutes since.</p>
+<div class="chart"><div id="c10"></div></div><p class="cap">Median film length by decade, 1930s onwards.</p></section>
+
+<footer><strong>Author:</strong> Katrin Lee Shin Ern · FIT3179 Data Visualisation 2, Monash University Malaysia · 13 October 2026 (draft)<br><br>
+<strong>Data sources:</strong> (1) TMDB 5000 Movie Dataset, from <a href="https://www.themoviedb.org/">The Movie Database</a> via <a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata">Kaggle</a>: 4,794 released films up to February 2017; financial charts use the 3,202 films with both budget and revenue; rating charts use films with at least 10 votes. (2) <a href="https://data.worldbank.org/indicator/SP.POP.TOTL">World Bank, Population, total (SP.POP.TOTL)</a>, 2016 values. (3) Country outlines: <a href="https://github.com/vega/vega-datasets">vega-datasets</a> world-110m (Natural Earth). Money values are in nominal US dollars. The collection is a sample and is heavily weighted towards US films.<br><br>
+<strong>AI acknowledgement:</strong> The Vega-Lite specifications, page code and narrative text were drafted with the help of Claude (Anthropic) and reviewed by the author.</footer>
+
+<script>
+vegaEmbed("#m1", "js/map1_choropleth.json", {actions:true});
+vegaEmbed("#m2", "js/map2_symbols.json", {actions:true});
+vegaEmbed("#m3", "js/map3_flow.json", {actions:true});
+vegaEmbed("#c4", "js/chart4_stream.json", {actions:true});
+vegaEmbed("#c5", "js/chart5_heatmap.json", {actions:true});
+vegaEmbed("#c6", "js/chart6_radar.json", {actions:true});
+vegaEmbed("#c7", "js/chart7_density.json", {actions:true});
+vegaEmbed("#c8", "js/chart8_scatter.json", {actions:true});
+vegaEmbed("#c9", "js/chart9_studios.json", {actions:true});
+vegaEmbed("#c10", "js/chart10_runtime.json", {actions:true});
+vegaEmbed("#c11", "js/chart11_months.json", {actions:true});
+</script></body></html>

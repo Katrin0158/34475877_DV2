@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/genre_long.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "rating": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.decade>=1950"
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "decade",
+      "type": "ordinal",
+      "title": "Decade",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "genre",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "op": "mean",
+        "field": "rating",
+        "order": "descending"
+      }
+    },
+    "color": {
+      "aggregate": "mean",
+      "field": "rating",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "goldorange",
+        "domain": [
+          5,
+          7.5
+        ]
+      },
+      "legend": {
+        "title": "Average rating"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "genre"
+      },
+      {
+        "field": "decade",
+        "title": "Decade"
+      },
+      {
+        "aggregate": "mean",
+        "field": "rating",
+        "title": "Avg rating",
+        "format": ".2f"
+      },
+      {
+        "aggregate": "count",
+        "title": "Films"
+      }
+    ]
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8",
+      "gridColor": "#2f2a25",
+      "domainColor": "#5a5248",
+      "tickColor": "#5a5248",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "header": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "title": {
+      "color": "#f3ead9"
+    }
+  }
+}

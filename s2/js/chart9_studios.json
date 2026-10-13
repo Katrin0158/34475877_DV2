@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/studios.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "films": "number",
+        "revenue": "number"
+      }
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "studio",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "revenue",
+      "type": "quantitative",
+      "title": "Total box office (US$)",
+      "axis": {
+        "format": "~s"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#7a5a2a",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x2": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "color": "#e8a838",
+        "size": 150,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "studio"
+          },
+          {
+            "field": "films",
+            "title": "Films"
+          },
+          {
+            "field": "revenue",
+            "format": ",.0f",
+            "title": "US$"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8",
+      "gridColor": "#2f2a25",
+      "domainColor": "#5a5248",
+      "tickColor": "#5a5248",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "header": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "title": {
+      "color": "#f3ead9"
+    }
+  }
+}

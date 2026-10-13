@@ -1,0 +1,26 @@
+genre,measure,idx,score,actual
+Documentary,Typical budget,0,0.0,US$3M
+Documentary,Typical box office,1,1.8,US$18M
+Documentary,Return on budget,2,100.0,3.9×
+Documentary,Average rating,3,100.0,6.88 / 10
+Documentary,Number of films,4,0.0,69
+Horror,Typical budget,0,15.5,US$14M
+Horror,Typical box office,1,15.5,US$43M
+Horror,Return on budget,2,51.2,2.9×
+Horror,Average rating,3,0.0,5.74 / 10
+Horror,Number of films,4,20.9,490
+Animation,Typical budget,0,100.0,US$75M
+Animation,Typical box office,1,100.0,US$199M
+Animation,Return on budget,2,47.0,2.8×
+Animation,Average rating,3,59.6,6.42 / 10
+Animation,Number of films,4,7.5,221
+Drama,Typical budget,0,23.8,US$20M
+Drama,Typical box office,1,13.7,US$40M
+Drama,Return on budget,2,13.7,2.1×
+Drama,Average rating,3,67.7,6.51 / 10
+Drama,Number of films,4,100.0,"2,085"
+Action,Typical budget,0,58.4,US$45M
+Action,Typical box office,1,40.7,US$90M
+Action,Return on budget,2,17.3,2.2×
+Action,Average rating,3,28.1,6.06 / 10
+Action,Number of films,4,51.6,"1,110"

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "month": "number",
+        "rating": "number",
+        "runtime": "number",
+        "budget": "number",
+        "revenue": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.runtime>0 && datum.year>=1930"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "color": "#e8a838",
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "decade",
+      "type": "ordinal",
+      "title": "Decade",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "aggregate": "median",
+      "field": "runtime",
+      "type": "quantitative",
+      "scale": {
+        "zero": false
+      },
+      "title": "Median length (minutes)"
+    },
+    "tooltip": [
+      {
+        "field": "decade",
+        "title": "Decade"
+      },
+      {
+        "aggregate": "median",
+        "field": "runtime",
+        "title": "Median minutes"
+      }
+    ]
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8",
+      "gridColor": "#2f2a25",
+      "domainColor": "#5a5248",
+      "tickColor": "#5a5248",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "header": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "title": {
+      "color": "#f3ead9"
+    }
+  }
+}

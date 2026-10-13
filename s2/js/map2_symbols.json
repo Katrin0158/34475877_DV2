@@ -1,0 +1,184 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total box office of films made in each country, up to the chosen year",
+  "width": "container",
+  "height": 400,
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/oceans.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "oceans"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#17222b"
+      }
+    },
+    {
+      "data": {
+        "url": "data/WorldMapWithGraticules.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#2f3a44",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "data/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#3a342d",
+        "stroke": "#14110f",
+        "strokeWidth": 0.4
+      }
+    },
+    {
+      "data": {
+        "url": "data/film_country.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "longitude": "number",
+            "latitude": "number",
+            "revenue": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year<=Year_selection"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "revenue",
+              "as": "Box office"
+            },
+            {
+              "op": "count",
+              "as": "Films"
+            }
+          ],
+          "groupby": [
+            "Country",
+            "longitude",
+            "latitude"
+          ]
+        },
+        {
+          "filter": "datum['Box office']>0"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.75,
+        "color": "#e8a838",
+        "stroke": "#fff3c4",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "Box office",
+          "type": "quantitative",
+          "title": "Box office (US$)",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              400000000000
+            ],
+            "range": [
+              0,
+              3500
+            ]
+          },
+          "legend": {
+            "format": "~s"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Country"
+          },
+          {
+            "field": "Box office",
+            "type": "quantitative",
+            "format": ",.0f"
+          },
+          {
+            "field": "Films",
+            "type": "quantitative"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8",
+      "gridColor": "#2f2a25",
+      "domainColor": "#5a5248",
+      "tickColor": "#5a5248",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "header": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "title": {
+      "color": "#f3ead9"
+    }
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2016,
+      "bind": {
+        "input": "range",
+        "min": 1950,
+        "max": 2016,
+        "step": 1,
+        "name": "Films released up to: "
+      }
+    }
+  ]
+}

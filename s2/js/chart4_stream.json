@@ -1,0 +1,136 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/genre_long.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "rating": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "genre",
+        "oneOf": [
+          "Drama",
+          "Comedy",
+          "Thriller",
+          "Action",
+          "Romance",
+          "Adventure",
+          "Crime",
+          "Horror"
+        ]
+      }
+    },
+    {
+      "filter": "datum.decade>=1950"
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "decade",
+      "type": "ordinal",
+      "title": "Decade",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "stack": "center",
+      "axis": null
+    },
+    "color": {
+      "field": "genre",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Drama",
+          "Comedy",
+          "Thriller",
+          "Action",
+          "Romance",
+          "Adventure",
+          "Crime",
+          "Horror"
+        ],
+        "scheme": "tableau10"
+      },
+      "legend": {
+        "title": "Genre"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "genre"
+      },
+      {
+        "field": "decade",
+        "title": "Decade"
+      },
+      {
+        "aggregate": "count",
+        "title": "Films"
+      }
+    ],
+    "opacity": {
+      "condition": {
+        "param": "genre_pick",
+        "value": 1
+      },
+      "value": 0.25
+    }
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8",
+      "gridColor": "#2f2a25",
+      "domainColor": "#5a5248",
+      "tickColor": "#5a5248",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "header": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "title": {
+      "color": "#f3ead9"
+    }
+  },
+  "params": [
+    {
+      "name": "genre_pick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "genre"
+        ]
+      },
+      "bind": "legend"
+    }
+  ]
+}

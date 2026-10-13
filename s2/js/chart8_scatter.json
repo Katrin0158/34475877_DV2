@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "month": "number",
+        "rating": "number",
+        "runtime": "number",
+        "budget": "number",
+        "revenue": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.budget!=null && datum.revenue!=null"
+    },
+    {
+      "calculate": "datum.year<1970?'Before 1970':datum.year<1990?'1970–89':datum.year<2000?'1990s':datum.year<2010?'2000s':'2010s'",
+      "as": "era"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 22,
+        "opacity": 0.5
+      },
+      "encoding": {
+        "x": {
+          "field": "budget",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          },
+          "title": "Budget (US$, log scale)",
+          "axis": {
+            "format": "~s"
+          }
+        },
+        "y": {
+          "field": "revenue",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          },
+          "title": "Box office (US$, log scale)",
+          "axis": {
+            "format": "~s"
+          }
+        },
+        "color": {
+          "field": "era",
+          "type": "ordinal",
+          "sort": [
+            "Before 1970",
+            "1970–89",
+            "1990s",
+            "2000s",
+            "2010s"
+          ],
+          "scale": {
+            "domain": [
+              "Before 1970",
+              "1970–89",
+              "1990s",
+              "2000s",
+              "2010s"
+            ],
+            "scheme": "oranges"
+          },
+          "legend": {
+            "title": "Era"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "title"
+          },
+          {
+            "field": "year"
+          },
+          {
+            "field": "budget",
+            "format": ",.0f"
+          },
+          {
+            "field": "revenue",
+            "format": ",.0f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "era_pick",
+            "value": 0.9
+          },
+          "value": 0.08
+        }
+      },
+      "params": [
+        {
+          "name": "era_pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "era"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#fff3c4",
+        "strokeDash": [
+          4,
+          4
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.budget",
+          "as": "b"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "budget",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "budget",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8",
+      "gridColor": "#2f2a25",
+      "domainColor": "#5a5248",
+      "tickColor": "#5a5248",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "header": {
+      "labelColor": "#cfc6b8",
+      "titleColor": "#cfc6b8"
+    },
+    "title": {
+      "color": "#f3ead9"
+    }
+  }
+}
