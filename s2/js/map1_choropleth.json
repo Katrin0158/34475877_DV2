@@ -22,7 +22,7 @@
     },
     {
       "data": {
-        "url": "data/WorldMapWithGraticules.topojson",
+        "url": "https://raw.githubusercontent.com/Katrin0158/Test_DV2/66596817cc3a120bfa44d2c46e448f8faccf2b3b/s2/data/WorldMapWithGraticules.topojson",
         "format": {
           "type": "topojson",
           "feature": "ne_110m_graticules_30"
