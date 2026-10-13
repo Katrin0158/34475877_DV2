@@ -9,7 +9,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://github.com/Katrin0158/Test_DV2/f7abf437c71f3c31dc5e445a09767f80e8b5e503/s2/data/oceans.topojson",
+        "url": "https://raw.githubusercontent.com/Katrin0158/Test_DV2/f7abf437c71f3c31dc5e445a09767f80e8b5e503/s2/data/oceans.topojson",
         "format": {
           "type": "topojson",
           "feature": "oceans"
