@@ -9,7 +9,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/oceans.topojson",
+        "url": "https://github.com/Katrin0158/Test_DV2/f7abf437c71f3c31dc5e445a09767f80e8b5e503/s2/data/oceans.topojson",
         "format": {
           "type": "topojson",
           "feature": "oceans"
@@ -37,7 +37,7 @@
     },
     {
       "data": {
-        "url": "data/ne_110m_admin_0_countries.topojson",
+        "url": "https://raw.githubusercontent.com/Katrin0158/Test_DV2/f7abf437c71f3c31dc5e445a09767f80e8b5e503/s2/data/ne_110m_admin_0_countries.topojson",
         "format": {
           "type": "topojson",
           "feature": "ne_110m_admin_0_countries"
@@ -52,7 +52,7 @@
     },
     {
       "data": {
-        "url": "data/ne_110m_admin_0_countries.topojson",
+        "url": "https://raw.githubusercontent.com/Katrin0158/Test_DV2/f7abf437c71f3c31dc5e445a09767f80e8b5e503/s2/data/ne_110m_admin_0_countries.topojson",
         "format": {
           "type": "topojson",
           "feature": "ne_110m_admin_0_countries"
@@ -63,7 +63,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "data/countries.csv",
+              "url": "https://raw.githubusercontent.com/Katrin0158/Test_DV2/f7abf437c71f3c31dc5e445a09767f80e8b5e503/s2/data/countries.csv",
               "format": {
                 "type": "csv",
                 "parse": {
