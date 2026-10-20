@@ -3,7 +3,7 @@
   "width": "container",
   "height": 380,
   "data": {
-    "url": "data/movies.csv",
+    "url": "https://katrin0158.github.io/34475877_DV2/data/movies.csv",
     "format": {
       "type": "csv",
       "parse": {

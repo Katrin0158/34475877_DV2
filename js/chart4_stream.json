@@ -4,7 +4,7 @@
   "width": "container",
   "height": 300,
   "data": {
-    "url": "data/genre_long.csv",
+    "url": "https://katrin0158.github.io/34475877_DV2/data/genre_long.csv",
     "format": {
       "type": "csv",
       "parse": {

@@ -394,7 +394,7 @@
     },
     {
       "data": {
-        "url": "data/radar.csv",
+        "url": "https://katrin0158.github.io/34475877_DV2/data/radar.csv",
         "format": {
           "type": "csv",
           "parse": {
