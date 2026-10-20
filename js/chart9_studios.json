@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/studios.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "films": "number",
+        "revenue": "number"
+      }
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "studio",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {
+        "labelLimit": 150
+      }
+    },
+    "x": {
+      "field": "revenue",
+      "type": "quantitative",
+      "title": "Total box office (US$)",
+      "axis": {
+        "labelExpr": "replace(format(datum.value,'~s'),'G','B')"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#8a5a1a",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x2": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 150,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "studio"
+          },
+          {
+            "field": "films",
+            "title": "Films"
+          },
+          {
+            "field": "revenue",
+            "format": ",.0f",
+            "title": "US$"
+          }
+        ],
+        "color": {
+          "field": "films",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#e9b872",
+              "#6e3306"
+            ]
+          },
+          "legend": {
+            "title": "Films with revenue data",
+            "orient": "bottom",
+            "gradientLength": 170
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "'US$'+format(datum.revenue/1e9,'.1f')+'B'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 10,
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  },
+  "title": "Biggest studios by total box office"
+}

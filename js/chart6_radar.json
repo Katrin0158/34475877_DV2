@@ -1,0 +1,546 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 300,
+  "title": "Five genres compared (100 = highest)",
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "ring": 25,
+            "idx": 0,
+            "x": 0.0,
+            "y": 25.0
+          },
+          {
+            "ring": 25,
+            "idx": 1,
+            "x": 23.78,
+            "y": 7.73
+          },
+          {
+            "ring": 25,
+            "idx": 2,
+            "x": 14.69,
+            "y": -20.23
+          },
+          {
+            "ring": 25,
+            "idx": 3,
+            "x": -14.69,
+            "y": -20.23
+          },
+          {
+            "ring": 25,
+            "idx": 4,
+            "x": -23.78,
+            "y": 7.73
+          },
+          {
+            "ring": 25,
+            "idx": 0,
+            "x": -0.0,
+            "y": 25.0
+          },
+          {
+            "ring": 50,
+            "idx": 0,
+            "x": 0.0,
+            "y": 50.0
+          },
+          {
+            "ring": 50,
+            "idx": 1,
+            "x": 47.55,
+            "y": 15.45
+          },
+          {
+            "ring": 50,
+            "idx": 2,
+            "x": 29.39,
+            "y": -40.45
+          },
+          {
+            "ring": 50,
+            "idx": 3,
+            "x": -29.39,
+            "y": -40.45
+          },
+          {
+            "ring": 50,
+            "idx": 4,
+            "x": -47.55,
+            "y": 15.45
+          },
+          {
+            "ring": 50,
+            "idx": 0,
+            "x": -0.0,
+            "y": 50.0
+          },
+          {
+            "ring": 75,
+            "idx": 0,
+            "x": 0.0,
+            "y": 75.0
+          },
+          {
+            "ring": 75,
+            "idx": 1,
+            "x": 71.33,
+            "y": 23.18
+          },
+          {
+            "ring": 75,
+            "idx": 2,
+            "x": 44.08,
+            "y": -60.68
+          },
+          {
+            "ring": 75,
+            "idx": 3,
+            "x": -44.08,
+            "y": -60.68
+          },
+          {
+            "ring": 75,
+            "idx": 4,
+            "x": -71.33,
+            "y": 23.18
+          },
+          {
+            "ring": 75,
+            "idx": 0,
+            "x": -0.0,
+            "y": 75.0
+          },
+          {
+            "ring": 100,
+            "idx": 0,
+            "x": 0.0,
+            "y": 100.0
+          },
+          {
+            "ring": 100,
+            "idx": 1,
+            "x": 95.11,
+            "y": 30.9
+          },
+          {
+            "ring": 100,
+            "idx": 2,
+            "x": 58.78,
+            "y": -80.9
+          },
+          {
+            "ring": 100,
+            "idx": 3,
+            "x": -58.78,
+            "y": -80.9
+          },
+          {
+            "ring": 100,
+            "idx": 4,
+            "x": -95.11,
+            "y": 30.9
+          },
+          {
+            "ring": 100,
+            "idx": 0,
+            "x": -0.0,
+            "y": 100.0
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "color": "#cfc4ad",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "detail": {
+          "field": "ring",
+          "type": "nominal"
+        },
+        "order": {
+          "field": "idx",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 0,
+            "y": 0,
+            "x2": 0.0,
+            "y2": 100.0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "x2": 95.11,
+            "y2": 30.9
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "x2": 58.78,
+            "y2": -80.9
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "x2": -58.78,
+            "y2": -80.9
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "x2": -95.11,
+            "y2": 30.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#cfc4ad"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 3,
+            "y": 28,
+            "label": "25"
+          },
+          {
+            "x": 3,
+            "y": 53,
+            "label": "50"
+          },
+          {
+            "x": 3,
+            "y": 78,
+            "label": "75"
+          },
+          {
+            "x": 3,
+            "y": 103,
+            "label": "100"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "color": "#7a6e5b",
+        "fontSize": 10
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 0.0,
+            "y": 122.0,
+            "label": "Typical budget"
+          },
+          {
+            "x": 116.03,
+            "y": 37.7,
+            "label": "Typical box office"
+          },
+          {
+            "x": 71.71,
+            "y": -98.7,
+            "label": "Return on budget"
+          },
+          {
+            "x": -71.71,
+            "y": -98.7,
+            "label": "Average rating"
+          },
+          {
+            "x": -116.03,
+            "y": 37.7,
+            "label": "Number of films"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#2b2218",
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/radar.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "idx": "number",
+            "score": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.score*sin(2*PI*datum.idx/5)",
+          "as": "x"
+        },
+        {
+          "calculate": "datum.score*cos(2*PI*datum.idx/5)",
+          "as": "y"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              -150,
+              150
+            ]
+          },
+          "axis": null
+        },
+        "color": {
+          "field": "genre",
+          "type": "nominal",
+          "title": "Genre",
+          "scale": {
+            "domain": [
+              "Documentary",
+              "Horror",
+              "Animation",
+              "Drama",
+              "Action"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#CC79A7",
+              "#009E73",
+              "#D55E00"
+            ]
+          },
+          "legend": {
+            "title": "Genre",
+            "orient": "bottom",
+            "columns": 5
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "interpolate": "linear-closed",
+            "strokeWidth": 2.5,
+            "filled": true,
+            "fillOpacity": 0.12
+          },
+          "encoding": {
+            "order": {
+              "field": "idx",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "circle",
+            "size": 55,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "genre",
+                "title": "Genre"
+              },
+              {
+                "field": "measure",
+                "title": "Measure"
+              },
+              {
+                "field": "actual",
+                "title": "Actual value"
+              },
+              {
+                "field": "score",
+                "title": "Score (0-100)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}

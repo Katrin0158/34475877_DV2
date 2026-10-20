@@ -1,0 +1,199 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Do better-rated films earn more?",
+  "width": "container",
+  "height": 340,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "rating": "number",
+        "revenue": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.revenue!=null && datum.rating>0"
+    },
+    {
+      "calculate": "datum.rating<5.5?'Under 5.5':datum.rating<6.5?'5.5 to 6.5':datum.rating<7.5?'6.5 to 7.5':'Over 7.5'",
+      "as": "band"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "extent": 1.5,
+        "size": 44
+      },
+      "encoding": {
+        "x": {
+          "field": "band",
+          "type": "ordinal",
+          "sort": [
+            "Under 5.5",
+            "5.5 to 6.5",
+            "6.5 to 7.5",
+            "Over 7.5"
+          ],
+          "title": "Audience rating band (out of 10)",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "revenue",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000.0
+            ],
+            "zero": true,
+            "nice": false
+          },
+          "title": "Box office (US$, square-root scale, starts at 0)",
+          "axis": {
+            "values": [
+              0,
+              100000000.0,
+              250000000.0,
+              500000000.0,
+              1000000000.0,
+              2000000000.0,
+              3000000000.0
+            ],
+            "labelExpr": "'$'+replace(format(datum.value,'~s'),'G','B')"
+          }
+        },
+        "color": {
+          "field": "band",
+          "type": "ordinal",
+          "sort": [
+            "Under 5.5",
+            "5.5 to 6.5",
+            "6.5 to 7.5",
+            "Over 7.5"
+          ],
+          "scale": {
+            "domain": [
+              "Under 5.5",
+              "5.5 to 6.5",
+              "6.5 to 7.5",
+              "Over 7.5"
+            ],
+            "range": [
+              "#e9b872",
+              "#d98e2e",
+              "#b45f06",
+              "#8a4a08"
+            ]
+          },
+          "legend": {
+            "title": "Rating band",
+            "orient": "bottom"
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "median",
+              "field": "revenue",
+              "as": "med"
+            }
+          ],
+          "groupby": [
+            "band"
+          ]
+        },
+        {
+          "calculate": "'US$'+format(datum.med/1e6,'.0f')+'M'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 30,
+        "fontWeight": "bold",
+        "fontSize": 11,
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "field": "band",
+          "type": "ordinal",
+          "sort": [
+            "Under 5.5",
+            "5.5 to 6.5",
+            "6.5 to 7.5",
+            "Over 7.5"
+          ],
+          "title": "Audience rating band (out of 10)",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "med",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000.0
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  },
+  "padding": {
+    "right": 50
+  }
+}

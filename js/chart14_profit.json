@@ -1,0 +1,119 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Biggest money-makers and money-losers",
+  "width": "container",
+  "height": {
+    "step": 22
+  },
+  "data": {
+    "url": "data/profit.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "profit": "number"
+      }
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "title",
+      "type": "nominal",
+      "sort": {
+        "field": "profit",
+        "order": "descending"
+      },
+      "title": null,
+      "axis": {
+        "labelLimit": 190
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "profit",
+          "type": "quantitative",
+          "title": "Profit = box office minus budget (US$)",
+          "axis": {
+            "labelExpr": "(datum.value<0?'\u2212':'')+'$'+replace(format(abs(datum.value),'~s'),'G','B')"
+          }
+        },
+        "color": {
+          "field": "kind",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Made money",
+              "Lost money"
+            ],
+            "range": [
+              "#0072B2",
+              "#D55E00"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "title",
+            "title": "Film"
+          },
+          {
+            "field": "profit",
+            "title": "Profit (US$)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}

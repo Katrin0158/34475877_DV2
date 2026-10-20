@@ -1,0 +1,118 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Median film length (axis starts at zero)",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "month": "number",
+        "rating": "number",
+        "runtime": "number",
+        "budget": "number",
+        "revenue": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.runtime>0 && datum.year>=1930"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 60
+        },
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "decade",
+          "type": "ordinal",
+          "title": "Decade",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "aggregate": "median",
+          "field": "runtime",
+          "type": "quantitative",
+          "scale": {
+            "zero": true,
+            "domain": [
+              0,
+              140
+            ]
+          },
+          "title": "Median length (minutes)"
+        },
+        "tooltip": [
+          {
+            "field": "decade",
+            "title": "Decade"
+          },
+          {
+            "aggregate": "median",
+            "field": "runtime",
+            "title": "Median minutes"
+          }
+        ],
+        "color": {
+          "datum": "Median film length",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#c8710a"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom"
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}

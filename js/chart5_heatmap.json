@@ -1,0 +1,185 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average audience rating by genre and decade",
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/heatmap.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "decade": "number",
+        "rating": "number",
+        "films": "number"
+      }
+    }
+  },
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.rating!=null"
+        }
+      ],
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "decade",
+          "type": "ordinal",
+          "title": "Decade",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "genre",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "op": "mean",
+            "field": "rating",
+            "order": "descending"
+          }
+        },
+        "color": {
+          "field": "rating",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#f7e6b5",
+              "#e0a030",
+              "#b45f06",
+              "#6d3503"
+            ],
+            "domain": [
+              5,
+              7.5
+            ]
+          },
+          "legend": {
+            "title": "Average rating",
+            "orient": "bottom",
+            "gradientLength": 170
+          }
+        },
+        "tooltip": [
+          {
+            "field": "genre"
+          },
+          {
+            "field": "decade",
+            "title": "Decade"
+          },
+          {
+            "field": "rating",
+            "title": "Average rating",
+            "format": ".2f"
+          },
+          {
+            "field": "films",
+            "title": "Films"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.rating==null"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "stroke": "#e3d9c4",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "x": {
+          "field": "decade",
+          "type": "ordinal",
+          "title": "Decade",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "genre",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "op": "mean",
+            "field": "rating",
+            "order": "descending"
+          }
+        },
+        "color": {
+          "datum": "No data (under 3 films)",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "No data (under 3 films)"
+            ],
+            "range": [
+              "#a8c4d8"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "symbolType": "square"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "genre"
+          },
+          {
+            "field": "decade",
+            "title": "Decade"
+          },
+          {
+            "field": "films",
+            "title": "Films"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}

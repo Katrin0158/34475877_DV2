@@ -1,0 +1,150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Which genres are often combined?",
+  "width": "container",
+  "height": 430,
+  "data": {
+    "url": "data/genre_pairs.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "films": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "genre_a",
+      "type": "nominal",
+      "sort": [
+        "Drama",
+        "Comedy",
+        "Thriller",
+        "Action",
+        "Romance",
+        "Adventure",
+        "Crime",
+        "Science Fiction",
+        "Horror",
+        "Family",
+        "Fantasy",
+        "Mystery",
+        "Animation",
+        "History",
+        "Music"
+      ],
+      "title": null,
+      "axis": {
+        "labelAngle": -45,
+        "orient": "bottom"
+      }
+    },
+    "y": {
+      "field": "genre_b",
+      "type": "nominal",
+      "sort": [
+        "Drama",
+        "Comedy",
+        "Thriller",
+        "Action",
+        "Romance",
+        "Adventure",
+        "Crime",
+        "Science Fiction",
+        "Horror",
+        "Family",
+        "Fantasy",
+        "Mystery",
+        "Animation",
+        "History",
+        "Music"
+      ],
+      "title": null
+    }
+  },
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "color": {
+          "field": "films",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "oranges",
+            "type": "sqrt"
+          },
+          "legend": {
+            "title": "Films with both genres",
+            "orient": "bottom",
+            "gradientLength": 170
+          }
+        },
+        "tooltip": [
+          {
+            "field": "genre_a",
+            "title": "Genre"
+          },
+          {
+            "field": "genre_b",
+            "title": "Combined with"
+          },
+          {
+            "field": "films",
+            "title": "Films"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 9
+      },
+      "encoding": {
+        "text": {
+          "field": "films",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.films>300",
+            "value": "#ffffff"
+          },
+          "value": "#2b2218"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}

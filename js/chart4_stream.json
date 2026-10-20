@@ -1,0 +1,157 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Number of films by genre, 1950s onwards",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/genre_long.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "rating": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "genre",
+        "oneOf": [
+          "Drama",
+          "Comedy",
+          "Thriller",
+          "Action",
+          "Romance",
+          "Adventure",
+          "Crime",
+          "Horror"
+        ]
+      }
+    },
+    {
+      "filter": "datum.decade>=1950"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "decade",
+          "type": "ordinal",
+          "title": "Decade",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "stack": "center",
+          "axis": null
+        },
+        "color": {
+          "field": "genre",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Drama",
+              "Comedy",
+              "Thriller",
+              "Action",
+              "Romance",
+              "Adventure",
+              "Crime",
+              "Horror"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#CC79A7",
+              "#D55E00",
+              "#56B4E9",
+              "#009E73",
+              "#7a7a7a",
+              "#3b2f6b"
+            ]
+          },
+          "legend": {
+            "title": "Genre",
+            "orient": "bottom",
+            "columns": 4
+          }
+        },
+        "tooltip": [
+          {
+            "field": "genre"
+          },
+          {
+            "field": "decade",
+            "title": "Decade"
+          },
+          {
+            "aggregate": "count",
+            "title": "Films"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "genre_pick",
+            "value": 1
+          },
+          "value": 0.25
+        }
+      },
+      "params": [
+        {
+          "name": "genre_pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "genre"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}

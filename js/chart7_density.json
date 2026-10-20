@@ -1,0 +1,155 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 330,
+  "height": 80,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "month": "number",
+        "rating": "number",
+        "runtime": "number",
+        "budget": "number",
+        "revenue": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.year<1970?'Before 1970':datum.year<1990?'1970\u201389':datum.year<2000?'1990s':datum.year<2010?'2000s':'2010s'",
+      "as": "era"
+    },
+    {
+      "density": "rating",
+      "groupby": [
+        "era"
+      ],
+      "extent": [
+        0,
+        10
+      ],
+      "steps": 80
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "opacity": 0.92,
+    "line": {
+      "color": "#4a3a2a"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Average audience rating (out of 10)",
+      "axis": {
+        "values": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10
+        ]
+      },
+      "scale": {
+        "domain": [
+          0,
+          10
+        ],
+        "nice": false
+      }
+    },
+    "y": {
+      "field": "density",
+      "type": "quantitative",
+      "axis": null
+    },
+    "row": {
+      "field": "era",
+      "type": "ordinal",
+      "sort": [
+        "Before 1970",
+        "1970\u201389",
+        "1990s",
+        "2000s",
+        "2010s"
+      ],
+      "title": null,
+      "header": {
+        "labelAngle": 0,
+        "labelAlign": "left",
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "era",
+      "type": "ordinal",
+      "sort": [
+        "Before 1970",
+        "1970\u201389",
+        "1990s",
+        "2000s",
+        "2010s"
+      ],
+      "scale": {
+        "domain": [
+          "Before 1970",
+          "1970\u201389",
+          "1990s",
+          "2000s",
+          "2010s"
+        ],
+        "range": [
+          "#e9b872",
+          "#d98e2e",
+          "#b45f06",
+          "#8a4a08",
+          "#4a2603"
+        ]
+      },
+      "legend": {
+        "title": "Era",
+        "orient": "bottom"
+      }
+    }
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  },
+  "title": "How audience ratings are spread, by era"
+}

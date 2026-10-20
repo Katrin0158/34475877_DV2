@@ -1,0 +1,236 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "decade": "number",
+        "month": "number",
+        "rating": "number",
+        "runtime": "number",
+        "budget": "number",
+        "revenue": "number",
+        "roi": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.budget!=null && datum.revenue!=null"
+    },
+    {
+      "calculate": "datum.year<1970?'Before 1970':datum.year<1990?'1970\u201389':datum.year<2000?'1990s':datum.year<2010?'2000s':'2010s'",
+      "as": "era"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 22,
+        "opacity": 0.5
+      },
+      "encoding": {
+        "x": {
+          "field": "budget",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              420000000.0
+            ],
+            "zero": true,
+            "nice": false
+          },
+          "title": "Budget (US$, square-root scale, starts at 0)",
+          "axis": {
+            "values": [
+              0,
+              50000000.0,
+              100000000.0,
+              200000000.0,
+              300000000.0,
+              400000000.0
+            ],
+            "labelExpr": "'$'+replace(format(datum.value,'~s'),'G','B')"
+          }
+        },
+        "y": {
+          "field": "revenue",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000.0
+            ],
+            "zero": true,
+            "nice": false
+          },
+          "title": "Box office (US$, square-root scale, starts at 0)",
+          "axis": {
+            "values": [
+              0,
+              500000000.0,
+              1000000000.0,
+              1500000000.0,
+              2000000000.0,
+              2500000000.0,
+              3000000000.0
+            ],
+            "labelExpr": "'$'+replace(format(datum.value,'~s'),'G','B')"
+          }
+        },
+        "color": {
+          "field": "era",
+          "type": "ordinal",
+          "sort": [
+            "Before 1970",
+            "1970\u201389",
+            "1990s",
+            "2000s",
+            "2010s"
+          ],
+          "scale": {
+            "domain": [
+              "Before 1970",
+              "1970\u201389",
+              "1990s",
+              "2000s",
+              "2010s"
+            ],
+            "range": [
+              "#e9b872",
+              "#d98e2e",
+              "#b45f06",
+              "#8a4a08",
+              "#4a2603"
+            ]
+          },
+          "legend": {
+            "title": "Era",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "title"
+          },
+          {
+            "field": "year"
+          },
+          {
+            "field": "budget",
+            "format": ",.0f"
+          },
+          {
+            "field": "revenue",
+            "format": ",.0f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "era_pick",
+            "value": 0.9
+          },
+          "value": 0.08
+        }
+      },
+      "params": [
+        {
+          "name": "era_pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "era"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#2b2218",
+        "strokeDash": [
+          4,
+          4
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.budget",
+          "as": "b"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "budget",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              420000000.0
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "budget",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000.0
+            ],
+            "zero": true,
+            "nice": false
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  },
+  "title": "Budget and box office of each film"
+}

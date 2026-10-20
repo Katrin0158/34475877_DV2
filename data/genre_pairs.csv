@@ -1,0 +1,201 @@
+genre_a,genre_b,films
+Action,Adventure,465
+Action,Fantasy,144
+Action,Science Fiction,276
+Adventure,Action,465
+Adventure,Fantasy,190
+Adventure,Science Fiction,205
+Fantasy,Action,144
+Fantasy,Adventure,190
+Fantasy,Science Fiction,85
+Science Fiction,Action,276
+Science Fiction,Adventure,205
+Science Fiction,Fantasy,85
+Action,Crime,276
+Adventure,Crime,56
+Crime,Action,276
+Crime,Adventure,56
+Action,Drama,339
+Action,Thriller,547
+Crime,Drama,381
+Crime,Thriller,414
+Drama,Action,339
+Drama,Crime,381
+Drama,Thriller,552
+Thriller,Action,547
+Thriller,Crime,414
+Thriller,Drama,552
+Animation,Family,195
+Family,Animation,195
+Adventure,Family,211
+Family,Adventure,211
+Family,Fantasy,149
+Fantasy,Family,149
+Adventure,Thriller,203
+Thriller,Adventure,203
+Action,Comedy,257
+Comedy,Action,257
+Comedy,Science Fiction,108
+Science Fiction,Comedy,108
+Adventure,Drama,183
+Drama,Adventure,183
+Drama,Romance,602
+Romance,Drama,602
+Romance,Thriller,64
+Thriller,Romance,64
+Science Fiction,Thriller,211
+Thriller,Science Fiction,211
+Adventure,Animation,114
+Adventure,Comedy,223
+Animation,Adventure,114
+Animation,Comedy,125
+Comedy,Adventure,223
+Comedy,Animation,125
+Comedy,Family,298
+Family,Comedy,298
+Action,Horror,76
+Drama,Horror,84
+Drama,Science Fiction,102
+Horror,Action,76
+Horror,Drama,84
+Horror,Science Fiction,95
+Horror,Thriller,291
+Science Fiction,Drama,102
+Science Fiction,Horror,95
+Thriller,Horror,291
+Action,Family,62
+Family,Action,62
+Action,Romance,63
+Adventure,Romance,66
+Fantasy,Romance,64
+Romance,Action,63
+Romance,Adventure,66
+Romance,Fantasy,64
+Action,Animation,26
+Animation,Action,26
+Animation,Fantasy,61
+Comedy,Fantasy,166
+Fantasy,Animation,61
+Fantasy,Comedy,166
+Comedy,Crime,180
+Comedy,Thriller,112
+Crime,Comedy,180
+Thriller,Comedy,112
+Animation,Drama,19
+Drama,Animation,19
+Animation,Science Fiction,30
+Family,Science Fiction,58
+Science Fiction,Animation,30
+Science Fiction,Family,58
+Drama,Family,120
+Family,Drama,120
+Crime,Fantasy,10
+Crime,Science Fiction,18
+Fantasy,Crime,10
+Science Fiction,Crime,18
+Comedy,Drama,574
+Drama,Comedy,574
+Drama,Fantasy,99
+Fantasy,Drama,99
+Family,Romance,52
+Romance,Family,52
+Romance,Science Fiction,31
+Science Fiction,Romance,31
+Adventure,Mystery,37
+Family,Mystery,6
+Mystery,Adventure,37
+Mystery,Family,6
+Mystery,Science Fiction,47
+Science Fiction,Mystery,47
+Action,Mystery,57
+Mystery,Action,57
+Mystery,Thriller,242
+Thriller,Mystery,242
+Adventure,Horror,20
+Horror,Adventure,20
+Drama,Mystery,175
+Fantasy,Mystery,19
+Fantasy,Thriller,63
+Mystery,Drama,175
+Mystery,Fantasy,19
+Mystery,Romance,24
+Romance,Mystery,24
+Thriller,Fantasy,63
+History,Romance,30
+Romance,History,30
+Action,History,58
+Adventure,History,27
+Drama,History,175
+History,Action,58
+History,Adventure,27
+History,Drama,175
+Comedy,Mystery,27
+Mystery,Comedy,27
+Animation,Thriller,3
+Thriller,Animation,3
+Animation,Mystery,1
+Mystery,Animation,1
+Crime,Mystery,105
+Mystery,Crime,105
+Fantasy,Horror,53
+Horror,Fantasy,53
+Comedy,Romance,484
+Romance,Comedy,484
+Animation,Music,14
+Animation,Romance,8
+Family,Music,32
+Music,Animation,14
+Music,Family,32
+Music,Romance,61
+Romance,Animation,8
+Romance,Music,61
+Crime,History,13
+History,Crime,13
+Horror,Mystery,91
+Mystery,Horror,91
+History,Thriller,21
+Thriller,History,21
+Family,Thriller,7
+Thriller,Family,7
+Drama,Music,106
+Music,Drama,106
+Comedy,Horror,78
+Horror,Comedy,78
+Comedy,Music,84
+Fantasy,Music,11
+Music,Comedy,84
+Music,Fantasy,11
+Crime,Family,8
+Family,Crime,8
+Crime,Horror,36
+Horror,Crime,36
+Comedy,History,11
+History,Comedy,11
+Crime,Romance,47
+Romance,Crime,47
+Adventure,Music,7
+Music,Adventure,7
+History,Music,6
+Music,History,6
+Horror,Romance,15
+Romance,Horror,15
+Crime,Music,11
+Music,Crime,11
+History,Mystery,3
+Mystery,History,3
+Action,Music,9
+Music,Action,9
+Horror,Music,3
+Music,Horror,3
+Music,Thriller,5
+Thriller,Music,5
+Family,Horror,1
+Horror,Family,1
+Family,History,1
+History,Family,1
+Music,Mystery,3
+Mystery,Music,3
+Music,Science Fiction,2
+Science Fiction,Music,2
+History,Horror,1
+Horror,History,1

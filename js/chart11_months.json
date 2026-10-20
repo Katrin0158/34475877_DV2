@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Median box office by release month, 1990 onwards",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/movies.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "month": "number",
+        "revenue": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.revenue!=null && datum.year>=1990"
+    },
+    {
+      "calculate": "datum.month==6?'Best month':datum.month==9?'Weakest month':'Other months'",
+      "as": "cat"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "median",
+          "field": "revenue",
+          "as": "med"
+        },
+        {
+          "op": "count",
+          "as": "n"
+        }
+      ],
+      "groupby": [
+        "month",
+        "cat"
+      ]
+    }
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "title": "Release month",
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "med",
+          "type": "quantitative",
+          "title": "Median box office (US$)",
+          "axis": {
+            "labelExpr": "replace(format(datum.value,'~s'),'G','B')"
+          }
+        },
+        "color": {
+          "field": "cat",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Best month",
+              "Weakest month",
+              "Other months"
+            ],
+            "range": [
+              "#D55E00",
+              "#0072B2",
+              "#d8c8a6"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month",
+            "title": "Month"
+          },
+          {
+            "field": "med",
+            "title": "Median US$",
+            "format": ",.0f"
+          },
+          {
+            "field": "n",
+            "title": "Films"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.cat!='Other months'"
+        },
+        {
+          "calculate": "'US$'+format(datum.med/1e6,'.0f')+'M'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -8,
+        "fontWeight": "bold",
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "title": "Release month",
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "med",
+          "type": "quantitative",
+          "title": "Median box office (US$)",
+          "axis": {
+            "labelExpr": "replace(format(datum.value,'~s'),'G','B')"
+          }
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218",
+      "gridColor": "#e3d9c4",
+      "domainColor": "#9a8f7b",
+      "tickColor": "#9a8f7b",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "header": {
+      "labelColor": "#4a4033",
+      "titleColor": "#2b2218"
+    },
+    "title": {
+      "color": "#2b2218",
+      "font": "Times New Roman",
+      "fontSize": 17,
+      "fontWeight": 600,
+      "anchor": "start",
+      "offset": 12
+    }
+  }
+}
