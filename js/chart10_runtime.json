@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Median film length (axis starts at zero)",
+  "title": "Median film length",
   "width": "container",
   "height": 260,
   "data": {
