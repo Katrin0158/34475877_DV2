@@ -37,7 +37,7 @@
         "x": {
           "field": "profit",
           "type": "quantitative",
-          "title": "Profit = box office minus budget (US$)",
+          "title": "Profit (US$)",
           "axis": {
             "labelExpr": "(datum.value<0?'−':'')+'$'+replace(format(abs(datum.value),'~s'),'G','B')"
           }

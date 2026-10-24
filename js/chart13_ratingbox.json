@@ -56,7 +56,7 @@
             "zero": true,
             "nice": false
           },
-          "title": "Box office (US$, square-root scale, starts at 0)",
+          "title": "Box office (US$)",
           "axis": {
             "values": [
               0,

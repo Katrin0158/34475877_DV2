@@ -48,7 +48,7 @@
             "zero": true,
             "nice": false
           },
-          "title": "Budget (US$, square-root scale, starts at 0)",
+          "title": "Budget (US$)",
           "axis": {
             "values": [
               0,
@@ -73,7 +73,7 @@
             "zero": true,
             "nice": false
           },
-          "title": "Box office (US$, square-root scale, starts at 0)",
+          "title": "Box office (US$)",
           "axis": {
             "values": [
               0,
@@ -205,7 +205,7 @@
           {
             "b": 237000000,
             "r": 2787965087,
-            "t": "Avatar: the biggest earner"
+            "t": "Avatar,the biggest earner"
           }
         ]
       },
@@ -215,108 +215,6 @@
         "dx": -8,
         "fontSize": 11,
         "fontWeight": "bold",
-        "color": "#2b2218"
-      },
-      "encoding": {
-        "x": {
-          "field": "b",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              420000000
-            ],
-            "zero": true,
-            "nice": false
-          }
-        },
-        "y": {
-          "field": "r",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              3000000000
-            ],
-            "zero": true,
-            "nice": false
-          }
-        },
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "b": 395000000,
-            "r": 395000000,
-            "t": "Break-even line"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -6,
-        "dy": -9,
-        "fontSize": 11,
-        "fontStyle": "italic",
-        "color": "#2b2218"
-      },
-      "encoding": {
-        "x": {
-          "field": "b",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              420000000
-            ],
-            "zero": true,
-            "nice": false
-          }
-        },
-        "y": {
-          "field": "r",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              3000000000
-            ],
-            "zero": true,
-            "nice": false
-          }
-        },
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "b": 260000000,
-            "r": 96000000,
-            "t": "Below the line: lost money"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 4,
-        "dy": 14,
-        "fontSize": 11,
-        "fontStyle": "italic",
         "color": "#2b2218"
       },
       "encoding": {
