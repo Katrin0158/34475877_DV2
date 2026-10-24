@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 400,
-  "height": 92,
+  "height": 80,
   "data": {
     "url": "https://katrin0158.github.io/34475877_DV2/data/movies.csv",
     "format": {
