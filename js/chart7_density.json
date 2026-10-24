@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 330,
-  "height": 80,
+  "width": 400,
+  "height": 92,
   "data": {
     "url": "https://katrin0158.github.io/34475877_DV2/data/movies.csv",
     "format": {
@@ -75,7 +75,7 @@
       "type": "ordinal",
       "sort": [
         "Before 1970",
-        "1970\u201389",
+        "1970-89",
         "1990s",
         "2000s",
         "2010s"
@@ -92,7 +92,7 @@
       "type": "ordinal",
       "sort": [
         "Before 1970",
-        "1970\u201389",
+        "1970-89",
         "1990s",
         "2000s",
         "2010s"
@@ -100,7 +100,7 @@
       "scale": {
         "domain": [
           "Before 1970",
-          "1970\u201389",
+          "1970-89",
           "1990s",
           "2000s",
           "2010s"
