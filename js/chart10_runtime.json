@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Median film length",
+  "title": "Median film length (axis starts at zero)",
   "width": "container",
   "height": 260,
   "data": {
@@ -79,6 +79,48 @@
             "title": null,
             "orient": "bottom"
           }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "decade": 1960,
+            "m": 128,
+            "t": "Longest: 128 min"
+          },
+          {
+            "decade": 2010,
+            "m": 104,
+            "t": "Today: 104 min"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -12,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "field": "decade",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
+          }
+        },
+        "text": {
+          "field": "t"
         }
       }
     }

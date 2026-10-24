@@ -23,7 +23,7 @@
       "filter": "datum.budget!=null && datum.revenue!=null"
     },
     {
-      "calculate": "datum.year<1970?'Before 1970':datum.year<1990?'1970\u201389':datum.year<2000?'1990s':datum.year<2010?'2000s':'2010s'",
+      "calculate": "datum.year<1970?'Before 1970':datum.year<1990?'1970–89':datum.year<2000?'1990s':datum.year<2010?'2000s':'2010s'",
       "as": "era"
     }
   ],
@@ -92,7 +92,7 @@
           "type": "ordinal",
           "sort": [
             "Before 1970",
-            "1970\u201389",
+            "1970–89",
             "1990s",
             "2000s",
             "2010s"
@@ -100,7 +100,7 @@
           "scale": {
             "domain": [
               "Before 1970",
-              "1970\u201389",
+              "1970–89",
               "1990s",
               "2000s",
               "2010s"
@@ -196,6 +196,158 @@
             "zero": true,
             "nice": false
           }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "b": 237000000,
+            "r": 2787965087,
+            "t": "Avatar: the biggest earner"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "field": "b",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              420000000
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "r",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "b": 395000000,
+            "r": 395000000,
+            "t": "Break-even line"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "dy": -9,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "field": "b",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              420000000
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "r",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "b": 260000000,
+            "r": 96000000,
+            "t": "Below the line: lost money"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "dy": 14,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#2b2218"
+      },
+      "encoding": {
+        "x": {
+          "field": "b",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              420000000
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "r",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              3000000000
+            ],
+            "zero": true,
+            "nice": false
+          }
+        },
+        "text": {
+          "field": "t"
         }
       }
     }
